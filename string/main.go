@@ -62,11 +62,4 @@ func main() {
 	fmt.Println("bufferConcat:", bufferStr)
 	fmt.Println("byteStr:", byteStr)
 
-	//var buf bytes.Buffer
-	// buf.WriteString("adv")
-	//buf.WriteString("adv2")
-	//fmt.Println(buf.String())
-	//date:=time.Now().Add(7 * 24 *time.Hour)
-	//fmt.Println(date.Unix())
-
 }
