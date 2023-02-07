@@ -30,17 +30,20 @@ func main() {
 		close(res.Res)
 		t.Stop()
 	}()
-	select {
-	case <-t.C:
-		fmt.Println("time out...")
-		break
-	case res, ok := <-res.Res:
-		if !ok {
-			fmt.Println("channel close...")
-			break
-		}
-		fmt.Println("req response:", res)
+	for {
+		select {
+		case <-t.C:
+			fmt.Println("time out...")
+			return
+		case res, ok := <-res.Res:
+			if !ok {
+				fmt.Println("channel close...")
+				break
+			}
+			return
+			fmt.Println("req response:", res)
 
+		}
 	}
 	fmt.Println("end ...")
 	time.Sleep(10 * time.Second)
